@@ -1,5 +1,7 @@
 import { SearchStockResponse } from './models';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const APIKEY = process.env.ALPHA_VANTAGE_API_KEY;
 
 export class StockController {

@@ -6,6 +6,9 @@ import { typeDefs } from './schema';
 import { resolvers } from './resolvers';
 import cors from 'cors';
 import morgan from 'morgan';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const startServer = async () => {
   const app = express();
