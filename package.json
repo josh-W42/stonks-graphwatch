@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
     "start": "node build/app.js",
-    "watch": "tsc -w"
+    "dev:build": "tsc -w",
+    "dev:run": "nodemon build/app.js",
+    "start:dev": "concurrently npm:dev:*"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "@types/morgan": "^1.9.3",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
+    "concurrently": "^7.2.2",
     "eslint": "^8.13.0",
     "nodemon": "^2.0.15"
   },
