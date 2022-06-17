@@ -22,7 +22,7 @@ export const searchDefs = [
     }
 
     type Query {
-      GetStocksGQL: SearchStockResponse
+      GetStocksGQL(input: String): SearchStockResponse
     }
   `,
 ];
