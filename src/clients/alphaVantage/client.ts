@@ -9,15 +9,24 @@ interface IRequestConfig {
 }
 
 export class AlphaVantageClient {
-  public static async Request<T>({ query }: IRequestConfig): Promise<T> {
+  public static async Request<T>({
+    query,
+  }: IRequestConfig): Promise<T | undefined> {
     const url = query.URL;
-    console.log(query.params);
 
-    const response = await axios(url);
-    console.log(
-      `GET: ${query.params?.function} [${response.statusText} : ${response.status}]`
-    );
+    try {
+      const response = await axios(url);
+      if (response.data['Error Message']) {
+        throw new Error(response.data['Error Message']);
+      }
 
-    return response.data;
+      console.log(
+        `GET: ${query.params?.function} [${response.statusText} : ${response.status}]`
+      );
+      return response.data;
+    } catch (error) {
+      console.log(`GET ERROR: ${query.params?.function}: [${error}]`);
+      return undefined;
+    }
   }
 }

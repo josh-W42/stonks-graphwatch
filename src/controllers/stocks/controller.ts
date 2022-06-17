@@ -13,6 +13,13 @@ export class StockController {
         keywords: input,
       }),
     });
+
+    if (!data) {
+      return {
+        bestMatches: [],
+      };
+    }
+
     const parser = new SearchParser();
     return parser.Parse(data);
   }
