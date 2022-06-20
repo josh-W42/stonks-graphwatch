@@ -14,9 +14,8 @@ export abstract class BaseQuery {
   protected _params: IBaseQueryParams;
 
   constructor(params: IBaseQueryParams) {
-    // Params must be intialized before calling BuildURL.
     this._params = params;
-    this._url = this._BuildURL();
+    this._url = this._BuildURL(params);
   }
 
   get URL(): string {
@@ -27,5 +26,12 @@ export abstract class BaseQuery {
     return this._params;
   }
 
-  protected abstract _BuildURL(): string;
+  protected _BuildURL(params: IBaseQueryParams): string {
+    const output: string[] = [this._baseURL];
+    for (const [param, value] of Object.entries(params)) {
+      output.push(`${param}=${value}`);
+    }
+
+    return output.join('&');
+  }
 }
