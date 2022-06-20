@@ -16,13 +16,4 @@ export class SearchEndpointQuery extends BaseQuery {
       ...params,
     });
   }
-
-  protected _BuildURL(): string {
-    const output: string[] = [this._baseURL];
-    for (const [param, value] of Object.entries(this._params)) {
-      output.push(`${param}=${value}`);
-    }
-
-    return output.join('&');
-  }
 }
