@@ -1,15 +1,15 @@
 import { QueryFunctionTypes, ResponseDataType } from '../../types';
 import { BaseQuery, IBaseQueryParams } from '../base';
 
-export interface ISearchParams extends IBaseQueryParams {
-  keywords: string;
+export interface IQuoteParams extends IBaseQueryParams {
+  symbol: string;
   datatype?: ResponseDataType;
 }
 
-export class SearchEndpointQuery extends BaseQuery {
-  constructor(params: ISearchParams) {
+export class QuoteEndpointQuery extends BaseQuery {
+  constructor(params: IQuoteParams) {
     super({
-      function: QueryFunctionTypes.Search,
+      function: QueryFunctionTypes.Quote,
       datatype: 'json',
       ...params,
     });
