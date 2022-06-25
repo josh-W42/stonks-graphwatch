@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node build/app.js",
+    "build": "tsc",
     "dev:build": "tsc -w",
     "dev:run": "nodemon build/app.js",
     "start:dev": "concurrently npm:dev:*"
