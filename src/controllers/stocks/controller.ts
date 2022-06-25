@@ -1,15 +1,22 @@
-import { AlphaVantageClient } from '../../clients/alphaVantage';
+import { AlphaVantageClient } from "../../clients/alphaVantage";
 import {
   QuoteResponse,
   RawQuoteResponse,
   RawSearchResponse,
   SearchResponse,
-} from '../../clients/alphaVantage/models';
-import { QuoteParser, SearchParser } from '../../clients/alphaVantage/parsers';
+  DailyResponse,
+  RawDailyResponse,
+} from "../../clients/alphaVantage/models";
+import {
+  QuoteParser,
+  SearchParser,
+  DailyParser,
+} from "../../clients/alphaVantage/parsers";
 import {
   QuoteEndpointQuery,
   SearchEndpointQuery,
-} from '../../clients/alphaVantage/queries';
+  DailyEndpointQuery,
+} from "../../clients/alphaVantage/queries";
 
 /**
  * A controller that houses static methods that retrieve data the AlphaVantage client.
@@ -46,7 +53,7 @@ export class StockController {
    *
    * Returns an empty QuoteResponse upon error.
    * @param symbol - The symbol of a global token.
-   * @returns
+   * @returns A promise that resolves to a QuoteResponse.
    */
   public static async GetQuote(symbol: string): Promise<QuoteResponse> {
     const data = await AlphaVantageClient.Request<RawQuoteResponse>({
@@ -62,6 +69,31 @@ export class StockController {
     }
 
     const parser = new QuoteParser();
+    return parser.Parse(data);
+  }
+
+  /**
+   * Static method that uses the AlphaVantage client to retrieve
+   * daily records for a single symbol.
+   *
+   * Retrieves the latest 100 data points (100 days) for the symbol.
+   *
+   * Returns an empty DailyResponse upon error.
+   * @param symbol - The symbol of a global token.
+   * @returns A promise that resolves to a DailyResponse.
+   */
+  public static async GetDailyRecords(symbol: string): Promise<DailyResponse> {
+    const data = await AlphaVantageClient.Request<RawDailyResponse>({
+      query: new DailyEndpointQuery({
+        symbol: symbol,
+      }),
+    });
+
+    if (!data) {
+      return {};
+    }
+
+    const parser = new DailyParser();
     return parser.Parse(data);
   }
 }
