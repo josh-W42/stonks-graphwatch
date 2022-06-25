@@ -1,3 +1,3 @@
 export * from './base';
-export * from './SearchEndpoint';
-export * from './QuoteEndpoint';
+export * from './searchEndpoint';
+export * from './quoteEndpoint';
