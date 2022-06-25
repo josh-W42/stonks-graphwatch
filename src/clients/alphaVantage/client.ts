@@ -1,8 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import dotenv from 'dotenv';
 import { BaseQuery } from './queries';
-
-dotenv.config();
 
 interface IRequestConfig {
   query: BaseQuery;
