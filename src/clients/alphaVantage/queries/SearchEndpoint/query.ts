@@ -6,6 +6,9 @@ export interface ISearchParams extends IBaseQueryParams {
   datatype?: ResponseDataType;
 }
 
+/**
+ * Concrete query class related to the Search Endpoint from the AlphaVantage API.
+ */
 export class SearchEndpointQuery extends BaseQuery {
   constructor(params: ISearchParams) {
     super({

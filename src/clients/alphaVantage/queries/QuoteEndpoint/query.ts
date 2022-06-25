@@ -6,6 +6,9 @@ export interface IQuoteParams extends IBaseQueryParams {
   datatype?: ResponseDataType;
 }
 
+/**
+ * Concrete query class related to the Quote Endpoint from the AlphaVantage API.
+ */
 export class QuoteEndpointQuery extends BaseQuery {
   constructor(params: IQuoteParams) {
     super({

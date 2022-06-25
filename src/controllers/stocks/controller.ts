@@ -11,11 +11,22 @@ import {
   SearchEndpointQuery,
 } from '../../clients/alphaVantage/queries';
 
+/**
+ * A controller that houses static methods that retrieve data the AlphaVantage client.
+ */
 export class StockController {
-  public static async GetStocks(symbol: string): Promise<SearchResponse> {
+  /**
+   * Static method that uses the AlphaVantage client to retrieve tokens with names or symbols
+   * closely related to the given input.
+   *
+   * Returns an empty SearchResponse upon error.
+   * @param input - Either a whole / partial symbol or a whole / partial name of an token.
+   * @returns A promise that resolves to a SearchResponse.
+   */
+  public static async GetStocks(input: string): Promise<SearchResponse> {
     const data = await AlphaVantageClient.Request<RawSearchResponse>({
       query: new SearchEndpointQuery({
-        keywords: symbol,
+        keywords: input,
       }),
     });
 
@@ -29,6 +40,14 @@ export class StockController {
     return parser.Parse(data);
   }
 
+  /**
+   * Static method that uses the AlphaVantage client to retrieve tokens with symbols
+   * that exactly match the symbol input.
+   *
+   * Returns an empty QuoteResponse upon error.
+   * @param symbol - The symbol of a global token.
+   * @returns
+   */
   public static async GetQuote(symbol: string): Promise<QuoteResponse> {
     const data = await AlphaVantageClient.Request<RawQuoteResponse>({
       query: new QuoteEndpointQuery({
