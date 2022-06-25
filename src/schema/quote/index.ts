@@ -23,7 +23,7 @@ export const quoteDefs = [
     }
 
     type Query {
-      GetQuoteGQL(input: String): QuoteResponse
+      GetQuoteGQL(symbol: String): QuoteResponse
     }
   `,
 ];

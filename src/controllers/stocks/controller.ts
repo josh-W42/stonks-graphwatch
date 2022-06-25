@@ -12,10 +12,10 @@ import {
 } from '../../clients/alphaVantage/queries';
 
 export class StockController {
-  public static async GetStocks(input: string): Promise<SearchResponse> {
+  public static async GetStocks(symbol: string): Promise<SearchResponse> {
     const data = await AlphaVantageClient.Request<RawSearchResponse>({
       query: new SearchEndpointQuery({
-        keywords: input,
+        keywords: symbol,
       }),
     });
 
@@ -29,10 +29,10 @@ export class StockController {
     return parser.Parse(data);
   }
 
-  public static async GetQuote(input: string): Promise<QuoteResponse> {
+  public static async GetQuote(symbol: string): Promise<QuoteResponse> {
     const data = await AlphaVantageClient.Request<RawQuoteResponse>({
       query: new QuoteEndpointQuery({
-        symbol: input,
+        symbol: symbol,
       }),
     });
 

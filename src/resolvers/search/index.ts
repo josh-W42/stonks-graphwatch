@@ -4,7 +4,7 @@ import { SearchResponse } from '../../clients/alphaVantage/models';
 import { StockController } from '../../controllers/stocks/index';
 
 interface ISearchArgs {
-  input: string;
+  symbol: string;
 }
 
 // schema.
@@ -14,8 +14,8 @@ export const search = {
       _: unknown,
       args: ISearchArgs
     ): Promise<SearchResponse | undefined> {
-      if (args.input) {
-        return await StockController.GetStocks(args.input);
+      if (args.symbol) {
+        return await StockController.GetStocks(args.symbol);
       }
     },
   },
