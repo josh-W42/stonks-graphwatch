@@ -7,9 +7,9 @@ import { resolvers } from './resolvers';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-dotenv.config();
+(async () => {
+  dotenv.config();
 
-const startServer = async () => {
   const app = express();
   app.use(cors());
 
@@ -32,6 +32,4 @@ const startServer = async () => {
       `🚀 Server ready at port: ${PORT} on path: ${server.graphqlPath}`
     );
   });
-};
-
-startServer();
+})();

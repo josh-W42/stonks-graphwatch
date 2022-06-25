@@ -1,14 +1,19 @@
 import axios, { AxiosError } from 'axios';
-import dotenv from 'dotenv';
 import { BaseQuery } from './queries';
-
-dotenv.config();
 
 interface IRequestConfig {
   query: BaseQuery;
 }
 
+/**
+ * A client that is used to fetch data from the AlphaVantage API
+ */
 export class AlphaVantageClient {
+  /**
+   * Static method used to retrieve data of type T.
+   * @param IRequestConfig.query - A class that must extend from the BaseQuery class that will handle generating appropriate URLs.
+   * @returns Data of type T or undefined upon error.
+   */
   public static async Request<T>({
     query,
   }: IRequestConfig): Promise<T | undefined> {

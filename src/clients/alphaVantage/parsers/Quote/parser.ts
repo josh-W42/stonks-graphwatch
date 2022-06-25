@@ -1,6 +1,9 @@
 import { QuoteResponse, RawQuoteResponse } from '../../models/quote';
 import { BaseParser } from '../base';
 
+/**
+ * A concrete parser class related to the Quote Endpoint from the AlphaVantage API.
+ */
 export class QuoteParser extends BaseParser<RawQuoteResponse, QuoteResponse> {
   public Parse(data: RawQuoteResponse): QuoteResponse {
     return {

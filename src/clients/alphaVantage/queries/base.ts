@@ -7,6 +7,11 @@ export interface IBaseQueryParams {
   readonly function?: QueryFunctionTypes;
 }
 
+/**
+ * An abstract class that all query classes will extend from.
+ *
+ * The goal of a Query class is to create an appropriate URL for the AlphaVantage client.
+ */
 export abstract class BaseQuery {
   protected _apikey = process.env.ALPHA_VANTAGE_API_KEY;
   protected _baseURL = `https://www.alphavantage.co/query?apikey=${this._apikey}`;

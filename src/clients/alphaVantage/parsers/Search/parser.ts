@@ -1,6 +1,9 @@
 import { MatchStock, RawSearchResponse, SearchResponse } from '../../models';
 import { BaseParser } from '../base';
 
+/**
+ * A concrete parser class related to the Search Endpoint from the AlphaVantage API.
+ */
 export class SearchParser extends BaseParser<
   RawSearchResponse,
   SearchResponse
