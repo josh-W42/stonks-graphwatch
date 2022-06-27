@@ -1,7 +1,8 @@
 export const enum QueryFunctionTypes {
-  'Search' = 'SYMBOL_SEARCH',
-  'Quote' = 'GLOBAL_QUOTE',
-  'Daily' = 'TIME_SERIES_DAILY',
+  "Search" = "SYMBOL_SEARCH",
+  "Quote" = "GLOBAL_QUOTE",
+  "Daily" = "TIME_SERIES_DAILY",
+  "Weekly" = "TIME_SERIES_WEEKLY",
 }
 
-export type ResponseDataType = 'json' | 'csv';
+export type ResponseDataType = "json" | "csv";
