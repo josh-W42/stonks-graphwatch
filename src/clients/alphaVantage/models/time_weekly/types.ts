@@ -7,11 +7,11 @@ export interface WeeklyMetaData {
 
 export interface WeeklyRecord {
   week: string;
-  open: string;
-  high: string;
-  low: string;
-  close: string;
-  volume: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
 }
 
 export interface WeeklyResponse {
@@ -20,21 +20,21 @@ export interface WeeklyResponse {
 }
 
 export interface RawWeeklyMetaData {
-  "1. Information": string;
-  "2. Symbol": string;
-  "3. Last Refreshed": string;
-  "4. Time Zone": string;
+  '1. Information': string;
+  '2. Symbol': string;
+  '3. Last Refreshed': string;
+  '4. Time Zone': string;
 }
 
 export interface RawWeeklyRecord {
-  "1. open": string;
-  "2. high": string;
-  "3. low": string;
-  "4. close": string;
-  "5. volume": string;
+  '1. open': string;
+  '2. high': string;
+  '3. low': string;
+  '4. close': string;
+  '5. volume': string;
 }
 
 export interface RawWeeklyResponse {
-  "Meta Data": RawWeeklyMetaData;
-  "Weekly Time Series": Record<string, RawWeeklyRecord>;
+  'Meta Data': RawWeeklyMetaData;
+  'Weekly Time Series': Record<string, RawWeeklyRecord>;
 }

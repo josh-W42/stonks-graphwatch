@@ -4,14 +4,14 @@ export const quoteDefs = [
   gql`
     type Quote {
       symbol: String!
-      open: String!
-      high: String!
-      low: String!
-      price: String!
-      volume: String!
+      open: Float!
+      high: Float!
+      low: Float!
+      price: Float!
+      volume: Int!
       latestTradingDay: String!
-      previousClose: String!
-      change: String!
+      previousClose: Float!
+      change: Float!
       changePercent: String!
     }
 

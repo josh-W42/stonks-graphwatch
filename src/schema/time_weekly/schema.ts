@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express';
 
 export const weeklyDefs = [
   gql`
@@ -11,11 +11,11 @@ export const weeklyDefs = [
 
     type WeeklyRecord {
       week: String!
-      open: String!
-      high: String!
-      low: String!
-      close: String!
-      volume: String!
+      open: Float!
+      high: Float!
+      low: Float!
+      close: Float!
+      volume: Int!
     }
 
     type WeeklyResponse {

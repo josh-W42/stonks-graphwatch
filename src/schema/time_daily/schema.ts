@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express';
 
 export const dailyDefs = [
   gql`
@@ -12,11 +12,11 @@ export const dailyDefs = [
 
     type DailyRecord {
       date: String!
-      open: String!
-      high: String!
-      low: String!
-      close: String!
-      volume: String!
+      open: Float!
+      high: Float!
+      low: Float!
+      close: Float!
+      volume: Int!
     }
 
     type DailyResponse {
