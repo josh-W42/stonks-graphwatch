@@ -1,13 +1,13 @@
 export interface Quote {
   symbol?: string;
-  open?: string;
-  high?: string;
-  low?: string;
-  price?: string;
-  volume?: string;
+  open?: number;
+  high?: number;
+  low?: number;
+  price?: number;
+  volume?: number;
   latestTradingDay?: string;
-  previousClose?: string;
-  change?: string;
+  previousClose?: number;
+  change?: number;
   changePercent?: string;
 }
 

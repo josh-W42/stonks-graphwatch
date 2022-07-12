@@ -9,14 +9,14 @@ export class QuoteParser extends BaseParser<RawQuoteResponse, QuoteResponse> {
     return {
       data: {
         symbol: data['Global Quote']['01. symbol'],
-        open: data['Global Quote']['02. open'],
-        high: data['Global Quote']['03. high'],
-        low: data['Global Quote']['04. low'],
-        price: data['Global Quote']['05. price'],
-        volume: data['Global Quote']['06. volume'],
+        open: parseFloat(data['Global Quote']['02. open']),
+        high: parseFloat(data['Global Quote']['03. high']),
+        low: parseFloat(data['Global Quote']['04. low']),
+        price: parseFloat(data['Global Quote']['05. price']),
+        volume: parseInt(data['Global Quote']['06. volume']),
         latestTradingDay: data['Global Quote']['07. latest trading day'],
-        previousClose: data['Global Quote']['08. previous close'],
-        change: data['Global Quote']['09. change'],
+        previousClose: parseFloat(data['Global Quote']['08. previous close']),
+        change: parseFloat(data['Global Quote']['09. change']),
         changePercent: data['Global Quote']['10. change percent'],
       },
     };
