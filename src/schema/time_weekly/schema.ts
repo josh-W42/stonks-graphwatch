@@ -10,7 +10,7 @@ export const weeklyDefs = [
     }
 
     type WeeklyRecord {
-      week: String!
+      date: String!
       open: Float!
       high: Float!
       low: Float!

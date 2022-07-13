@@ -6,7 +6,7 @@ export interface WeeklyMetaData {
 }
 
 export interface WeeklyRecord {
-  week: string;
+  date: string;
   open: number;
   high: number;
   low: number;

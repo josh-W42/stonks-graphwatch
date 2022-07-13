@@ -24,7 +24,7 @@ export class WeeklyParser extends BaseParser<
             low: parseFloat(value['3. low']),
             close: parseFloat(value['4. close']),
             volume: parseInt(value['5. volume']),
-            week: key,
+            date: new Date(key).toDateString(),
           };
         }
       ),
