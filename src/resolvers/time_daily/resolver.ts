@@ -1,5 +1,5 @@
-import { DailyResponse } from "../../clients/alphaVantage/models/time_daily";
-import { StockController } from "../../controllers/stocks/index";
+import { DailyResponse } from '../../clients/alphaVantage/models/time_daily';
+import { StockController } from '../../controllers/stocks/index';
 
 interface ISearchArgs {
   symbol: string;
