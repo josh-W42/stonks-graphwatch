@@ -1,4 +1,4 @@
-import { AlphaVantageClient } from "../../clients/alphaVantage";
+import { AlphaVantageClient } from '../../clients/alphaVantage';
 import {
   QuoteResponse,
   RawQuoteResponse,
@@ -6,23 +6,26 @@ import {
   SearchResponse,
   DailyResponse,
   RawDailyResponse,
-} from "../../clients/alphaVantage/models";
-import {
+  IntraDayIntervalTypes,
+  IntraDayResponse,
+  RawIntraDayResponse,
   RawWeeklyResponse,
   WeeklyResponse,
-} from "../../clients/alphaVantage/models/time_weekly";
+} from '../../clients/alphaVantage/models';
 import {
   QuoteParser,
   SearchParser,
   DailyParser,
-} from "../../clients/alphaVantage/parsers";
-import { WeeklyParser } from "../../clients/alphaVantage/parsers/timeWeekly";
+  WeeklyParser,
+  IntraDayParser,
+} from '../../clients/alphaVantage/parsers';
 import {
   QuoteEndpointQuery,
   SearchEndpointQuery,
   DailyEndpointQuery,
-} from "../../clients/alphaVantage/queries";
-import { WeeklyEndpointQuery } from "../../clients/alphaVantage/queries/timeSeriesWeekly";
+  IntraDayEndpointQuery,
+  WeeklyEndpointQuery,
+} from '../../clients/alphaVantage/queries';
 
 /**
  * A controller that houses static methods that retrieve data the AlphaVantage client.
@@ -126,6 +129,36 @@ export class StockController {
     }
 
     const parser = new WeeklyParser();
+    return parser.Parse(data);
+  }
+
+  /**
+   * Static method that uses the AlphaVantage client to retrieve
+   * IntraDay records for a single symbol.
+   *
+   * Currently, we use the 'compact' setting for outputsize;
+   * this allows us to take the latest 100 data points.
+   *
+   * @param symbol - The symbol of a global token.
+   * @param interval - One of the time interval types available from the API.
+   * @returns
+   */
+  public static async GetIntraDayRecords(
+    symbol: string,
+    interval: IntraDayIntervalTypes
+  ): Promise<IntraDayResponse> {
+    const data = await AlphaVantageClient.Request<RawIntraDayResponse>({
+      query: new IntraDayEndpointQuery({
+        symbol,
+        interval,
+      }),
+    });
+
+    if (!data) {
+      return {};
+    }
+
+    const parser = new IntraDayParser();
     return parser.Parse(data);
   }
 }
