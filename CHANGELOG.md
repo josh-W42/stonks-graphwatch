@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Feature: Added IntraDay Queries for a global token. ([#10](https://github.com/josh-W42/stonks-graphwatch/pull/10))
 - Feature: Added a query that fetches weekly records for a global token. ([#7](https://github.com/josh-W42/stonks-graphwatch/pull/7))
 - Feature: Added a query that fetches the latest 100 daily records for a global token. ([#6](https://github.com/josh-W42/stonks-graphwatch/pull/6))
 - Fix: Cleaned some file structure to maintain consistency. Added comments for readability. Changed GetQuoteGQL query arg from input to symbol to better represent input. ([#5](https://github.com/josh-W42/stonks-graphwatch/pull/5))
