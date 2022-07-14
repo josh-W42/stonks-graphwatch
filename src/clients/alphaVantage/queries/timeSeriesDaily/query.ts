@@ -1,10 +1,14 @@
-import { QueryFunctionTypes, ResponseDataType } from "../../types";
-import { BaseQuery, IBaseQueryParams } from "../base";
+import {
+  OutputSizeTypes,
+  QueryFunctionTypes,
+  ResponseDataType,
+} from '../../types';
+import { BaseQuery, IBaseQueryParams } from '../base';
 
 export interface IDailyParams extends IBaseQueryParams {
   symbol: string;
   datatype?: ResponseDataType;
-  outputsize?: string;
+  outputsize?: OutputSizeTypes;
 }
 
 /**
@@ -14,8 +18,8 @@ export class DailyEndpointQuery extends BaseQuery {
   constructor(params: IDailyParams) {
     super({
       function: QueryFunctionTypes.Daily,
-      datatype: "json",
-      outputsize: "compact",
+      datatype: 'json',
+      outputsize: 'compact',
       ...params,
     });
   }
