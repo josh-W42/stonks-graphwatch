@@ -42,7 +42,7 @@ export class IntraDayParser extends BaseParser<
       },
       records: Object.entries(data[timeSeriesKey]).map(([key, value]) => {
         return {
-          date: new Date(key).toString(),
+          date: key,
           open: parseFloat(value['1. open']),
           high: parseFloat(value['2. high']),
           low: parseFloat(value['3. low']),
