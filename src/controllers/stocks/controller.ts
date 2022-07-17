@@ -11,6 +11,8 @@ import {
   RawIntraDayResponse,
   RawWeeklyResponse,
   WeeklyResponse,
+  MonthlyResponse,
+  RawMonthlyResponse,
 } from '../../clients/alphaVantage/models';
 import {
   QuoteParser,
@@ -18,6 +20,7 @@ import {
   DailyParser,
   WeeklyParser,
   IntraDayParser,
+  MonthlyParser,
 } from '../../clients/alphaVantage/parsers';
 import {
   QuoteEndpointQuery,
@@ -25,6 +28,7 @@ import {
   DailyEndpointQuery,
   IntraDayEndpointQuery,
   WeeklyEndpointQuery,
+  MonthlyEndpointQuery,
 } from '../../clients/alphaVantage/queries';
 
 /**
@@ -159,6 +163,32 @@ export class StockController {
     }
 
     const parser = new IntraDayParser();
+    return parser.Parse(data);
+  }
+
+  /**
+   * Static method that uses the AlphaVantage client to retrieve
+   * Monthly records for a single symbol.
+   *
+   * Retrieves 20+ years of data.
+   *
+   * @param symbol
+   * @returns
+   */
+  public static async GetMonthlyRecords(
+    symbol: string
+  ): Promise<MonthlyResponse> {
+    const data = await AlphaVantageClient.Request<RawMonthlyResponse>({
+      query: new MonthlyEndpointQuery({
+        symbol,
+      }),
+    });
+
+    if (!data) {
+      return {};
+    }
+
+    const parser = new MonthlyParser();
     return parser.Parse(data);
   }
 }

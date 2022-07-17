@@ -4,6 +4,7 @@ import { search } from './search';
 import { weekly } from './timeWeekly';
 import { daily } from './time_daily';
 import { intraDay } from './time_intraDay';
+import { monthly } from './time_monthly';
 
 export const resolvers = mergeResolvers([
   search,
@@ -11,4 +12,5 @@ export const resolvers = mergeResolvers([
   daily,
   weekly,
   intraDay,
+  monthly,
 ]);
