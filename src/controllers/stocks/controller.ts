@@ -1,3 +1,4 @@
+import { UserInputError } from 'apollo-server-core';
 import { AlphaVantageClient } from '../../clients/alphaVantage';
 import {
   QuoteResponse,
@@ -51,9 +52,7 @@ export class StockController {
     });
 
     if (!data) {
-      return {
-        bestMatches: [],
-      };
+      throw new UserInputError('No Data Found!');
     }
 
     const parser = new SearchParser();
@@ -76,9 +75,7 @@ export class StockController {
     });
 
     if (!data) {
-      return {
-        data: {},
-      };
+      throw new UserInputError('No Data Found!');
     }
 
     const parser = new QuoteParser();
@@ -103,7 +100,7 @@ export class StockController {
     });
 
     if (!data) {
-      return {};
+      throw new UserInputError('No Data Found!');
     }
 
     const parser = new DailyParser();
@@ -129,7 +126,7 @@ export class StockController {
     });
 
     if (!data) {
-      return {};
+      throw new UserInputError('No Data Found!');
     }
 
     const parser = new WeeklyParser();
@@ -159,7 +156,7 @@ export class StockController {
     });
 
     if (!data) {
-      return {};
+      throw new UserInputError('No Data Found!');
     }
 
     const parser = new IntraDayParser();
@@ -185,7 +182,7 @@ export class StockController {
     });
 
     if (!data) {
-      return {};
+      throw new UserInputError('No Data Found!');
     }
 
     const parser = new MonthlyParser();
