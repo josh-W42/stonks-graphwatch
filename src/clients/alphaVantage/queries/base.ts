@@ -34,7 +34,13 @@ export abstract class BaseQuery {
   protected _BuildURL(params: IBaseQueryParams): string {
     const output: string[] = [this._baseURL];
     for (const [param, value] of Object.entries(params)) {
-      output.push(`${param}=${value}`);
+      if (value) {
+        if (Array.isArray(value)) {
+          output.push(`${param}=${value.join(',')}`);
+        } else {
+          output.push(`${param}=${value}`);
+        }
+      }
     }
 
     return output.join('&');

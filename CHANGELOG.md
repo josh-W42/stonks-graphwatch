@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Feature: Added a new query. ([#14](https://github.com/josh-W42/stonks-graphwatch/pull/14))
 - Feature: Added a monthly query for a global token. ([#13](https://github.com/josh-W42/stonks-graphwatch/pull/13))
 - Feature: Added IntraDay Queries for a global token. ([#10](https://github.com/josh-W42/stonks-graphwatch/pull/10))
 - Feature: Added a query that fetches weekly records for a global token. ([#7](https://github.com/josh-W42/stonks-graphwatch/pull/7))

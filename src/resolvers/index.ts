@@ -1,4 +1,5 @@
 import { mergeResolvers } from '@graphql-tools/merge';
+import { news } from './news';
 import { quote } from './quote';
 import { search } from './search';
 import { weekly } from './timeWeekly';
@@ -13,4 +14,5 @@ export const resolvers = mergeResolvers([
   weekly,
   intraDay,
   monthly,
+  news,
 ]);
