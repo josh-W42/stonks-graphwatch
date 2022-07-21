@@ -5,6 +5,7 @@ export const enum QueryFunctionTypes {
   'Weekly' = 'TIME_SERIES_WEEKLY',
   'IntraDay' = 'TIME_SERIES_INTRADAY',
   'Monthly' = 'TIME_SERIES_MONTHLY',
+  'News' = 'NEWS_SENTIMENT',
 }
 
 export type ResponseDataType = 'json' | 'csv';
