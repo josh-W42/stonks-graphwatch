@@ -22,7 +22,7 @@ export interface Article {
   source_domain: string;
   topics: Topic[];
   overall_sentiment_score: number;
-  overall_sentiment_label: number;
+  overall_sentiment_label: string;
   ticker_sentiment: TickerRef[];
 }
 

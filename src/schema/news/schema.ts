@@ -10,8 +10,8 @@ export const newsDefs = [
     type TickerRef {
       ticker: String!
       relevance_score: Float!
-      sentiment_score: Float!
-      sentiment_label: String!
+      ticker_sentiment_score: Float!
+      ticker_sentiment_label: String!
     }
 
     type Article {
@@ -20,13 +20,13 @@ export const newsDefs = [
       time_published: String!
       authors: [String!]!
       summary: String!
-      banner_image: String!
+      banner_image: String
       source: String!
       category_within_source: String!
       source_domain: String!
       topics: [Topic]!
       overall_sentiment_score: Float!
-      overall_sentiment_label: Float!
+      overall_sentiment_label: String!
       ticker_sentiment: [TickerRef]!
     }
 
