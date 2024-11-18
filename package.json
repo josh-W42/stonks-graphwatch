@@ -37,7 +37,7 @@
     "axios": "^0.28.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "graphql": "^16.8.1",
     "graphql-tools": "^8.2.8"
   }
